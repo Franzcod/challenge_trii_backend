@@ -1,6 +1,7 @@
 
 
 import requests
+from controllers import buyStock
 
 if __name__ == '__main__':
     
@@ -16,9 +17,9 @@ if __name__ == '__main__':
             data = response.json()
             listPrices.append(data[0]['price'])
     
+    buyAllStock =buyStock(listPrices)
     
-    
-    print('lista => ',listPrices)       
+    print("El usuario necesita {buyAllStock} para comprar todos los stocks".format(buyAllStock=buyAllStock))   
     
     
     
