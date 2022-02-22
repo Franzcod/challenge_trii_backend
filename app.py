@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-api = 'https://rickandmortyapi.com/api/character/2'
+api = 'https://rickandmortyapi.com/api/character'
 
 
 @app.route('/')
