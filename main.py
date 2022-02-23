@@ -1,5 +1,6 @@
 
 
+from ast import Try
 import requests
 from controllers import buyStock,sortStocks, buyFor
 
@@ -17,21 +18,32 @@ if __name__ == '__main__':
             data = response.json()
             # print(data[0])
             listPrices.append(data[0])
+        
     
     buyAllStock = buyStock(listPrices)
     
     orden = sortStocks(listPrices)
     
-    
-    
-    
+    print("\033[1;33m"+"")
+    print("Ejercicio 1 - A")
     print("1-A => El usuario necesita {buyAllStock} para comprar todos los stocks".format(buyAllStock=buyAllStock))  
     
+    print("")
+    print("\033[;36m"+"------------------------------") 
+    
+    
+    print("Ejercicio 1 - B")
+    
+    monto = input("Ingrese un monto de dinero para comprar todos los stocks: ")
+    
     for stock in listPrices:
-        buystockFor = buyFor(3000000, stock) 
-        print('2-B => Con 3000.000 pesos el usuario puede comprar {buystockFor} {stock}'.format(buystockFor=buystockFor, stock=stock['symbol']))
+        mount = float(monto)
+        buystockFor = buyFor(mount, stock)
+        
+        print('1-B => Con $ {mount} el usuario puede comprar {buystockFor} {stock}. Resto = ${rest} '.format(mount=mount,buystockFor=buystockFor[0], stock=stock['symbol'], rest=buystockFor[1]))
     
     
+  
     
 
     
